@@ -94,13 +94,18 @@ void displaymenu(void) {
       }
       setCursorCounter = setCursorCounter +18 ;
     }
+
+
+    //Muhimmat Kodları Buraya Gelecek
   } else if (entered == 0) {
     display.clear();
     display.setTextAlignment(TEXT_ALIGN_LEFT);
     display.setFont(ArialMT_Plain_16);
     display.drawString(0, 18,"SELAMLAR");
 
-  } else if (entered == 1) {
+  }
+  //Ilk Yardım Kodları Buraya Gelecek 
+  else if (entered == 1) {
     display.clear();
     display.setTextAlignment(TEXT_ALIGN_LEFT);
     display.setFont(ArialMT_Plain_16);
