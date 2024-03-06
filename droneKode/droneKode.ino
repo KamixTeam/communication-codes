@@ -48,11 +48,11 @@ void initLora()
 
     if (!LoRa.begin(BAND))
     { // FREKANS ARALIĞINDA ÇALIŞMADIĞI DURUMDA HATA VERİYOR
-        Serial.println("Starting LoRa failed!");
+        //Serial.println("Starting LoRa failed!");
         while (1)
             ;
     }
-    Serial.println("LoRa Initializing OK!");
+    //Serial.println("LoRa Initializing OK!");
 }
 
 void initOLED()
@@ -72,9 +72,9 @@ void receiveDataLora()
     if (packetSize)
     {
         // received a packet
-        Serial.print("\nReceived packet size ");
-        Serial.print(packetSize);
-        Serial.print(" data ");
+        //Serial.print("\nReceived packet size ");
+        //Serial.print(packetSize);
+        //Serial.print(" data ");
         // read packet
         while (LoRa.available())
             for (int i = 0; i < packetSize; i++)
@@ -84,8 +84,8 @@ void receiveDataLora()
                 Serial.print(((byte *)&data)[i]);
             }
         // print RSSI of packet
-        Serial.print("' with RSSI ");
-        Serial.println(LoRa.packetRssi());
+        //Serial.print("' with RSSI ");
+        //Serial.println(LoRa.packetRssi());
         Serial.print("lat = ");
         Serial.print(data.lat, 10);
         Serial.print(" lng = ");
