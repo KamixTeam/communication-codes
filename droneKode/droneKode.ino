@@ -80,18 +80,18 @@ void receiveDataLora()
             for (int i = 0; i < packetSize; i++)
             {
                 ((byte *)&data)[i] = LoRa.read();
-                Serial.print(' ');
-                Serial.print(((byte *)&data)[i]);
+                //Serial.print(' ');
+                //Serial.print(((byte *)&data)[i]);
             }
         // print RSSI of packet
         //Serial.print("' with RSSI ");
         //Serial.println(LoRa.packetRssi());
         Serial.print("lat = ");
-        Serial.print(data.lat, 10);
-        Serial.print(" lng = ");
-        Serial.print(data.lng, 10);
-        Serial.print(" z = ");
-        Serial.print(data.z);
+        Serial.println(data.lat, 10);
+        Serial.print("lng = ");
+        Serial.println(data.lng, 10);
+        Serial.print("z = ");
+        Serial.println(data.z);
 
         display.drawString(0, 0, String(data.lat, 10));
         display.drawString(0, 18, String(data.lng, 10));
