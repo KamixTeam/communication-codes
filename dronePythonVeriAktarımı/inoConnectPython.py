@@ -1,1 +1,29 @@
-from serial import SerialportName = '/dev/ttyACM1'baudrate = 115200ser = Serial(portName, baudrate, timeout=0.1)val = []while True:    try:        line = ser.readline().strip().decode()  # Satırı oku, boşlukları temizle ve deşifre et        if line.startswith('lat'):  # Satır 'lat' ile başlıyorsa            lat = float(line.split('=')[1])  # Değerini al ve float'a çevir            val.append(lat)            print("Latitude:", lat)        elif line.startswith('lng'):  # Satır 'lng' ile başlıyorsa            lng = float(line.split('=')[1])  # Değerini al ve float'a çevir            print("Longitude:", lng)        elif line.startswith('z'):  # Satır 'z' ile başlıyorsa            z = line.split('=')[1].strip()  # Değerini al            print("Z:", z)    except KeyboardInterrupt:        break    except Exception as e:        print("Hata:", e)        breakser.close()
+from serial import Serial
+
+portName = '/dev/ttyACM1'
+baudrate = 115200
+
+ser = Serial(portName, baudrate, timeout=0.1)
+
+val = []
+
+while True:
+    try:
+        line = ser.readline().strip().decode()  # SatÃ½rÃ½ oku, boÃ¾luklarÃ½ temizle ve deÃ¾ifre et
+        if line.startswith('lat'):  # SatÃ½r 'lat' ile baÃ¾lÃ½yorsa
+            lat = float(line.split('=')[1])  # DeÃ°erini al ve float'a Ã§evir
+            val.append(lat)
+            print("Latitude:", lat)
+        elif line.startswith('lng'):  # SatÃ½r 'lng' ile baÃ¾lÃ½yorsa
+            lng = float(line.split('=')[1])  # DeÃ°erini al ve float'a Ã§evir
+            print("Longitude:", lng)
+        elif line.startswith('z'):  # SatÃ½r 'z' ile baÃ¾lÃ½yorsa
+            z = line.split('=')[1].strip()  # DeÃ°erini al
+            print("Z:", z)
+    except KeyboardInterrupt:
+        break
+    except Exception as e:
+        print("Hata:", e)
+        break
+
+ser.close()
